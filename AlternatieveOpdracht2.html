@@ -1,0 +1,64 @@
+<html>
+   <head>   
+       <script>
+        // global variablen; in meerdere functies nodig
+       var estland = ["blue", "black", "white"];
+       var litouwen = ["yellow", "green", "red"];
+       var rusland = ["white", "blue", "red"];
+       var hongarije = ["red", "white", "green"];
+       var bulgarije = ["white", "green", "red"];
+       var nederland = ["red", "white", "blue"];
+       
+       /* functie vlag krijgt variabele 'land' mee van button
+       & kleur van de 3 vakken wordt uit de array gehaald van variabele 'land'
+       & kleur vak wordt ingevuld */ 
+       function vlag(hetLand) { 
+
+            var vak1 = document.getElementById("vak1");
+            vak1.style.backgroundColor = hetLand[0];
+            console.log(vak1);
+            
+            var vak2 = document.getElementById("vak2");
+            vak2.style.backgroundColor = hetLand[1];
+            console.log(vak2);
+
+            var vak3 = document.getElementById("vak3");
+            vak3.style.backgroundColor = hetLand[2];
+            console.log(vak3);
+        }
+        /* functie kiest random variable 'land'
+        & geeft random output mee aan vlag() welke de random gekozen vlag 'print' in HTML */
+        function random(){
+		    var opties = [estland, litouwen, rusland, hongarije, bulgarije, nederland];
+		    var keuze = Math.floor(Math.random() * opties.length);
+            
+            vlag(opties[keuze]);
+        }
+
+       </script>
+       <style>
+            span{
+                display: block;
+                border:1px solid black;
+                height: 40px;
+                width: 180px;
+            }
+       </style>
+   </head>
+   <body>
+        Flag Generator<br><br>   
+       <span id=vak1></span>
+       <span id=vak2></span>
+       <span id=vak3></span><br>
+        Choose a Country<br>
+       <button onclick=vlag(estland)>Estland</button>
+       <button onclick=vlag(litouwen)>Litouwen</button>
+       <button onclick=random()>Random</button><br>
+       <button onclick=vlag(rusland)>Rusland</button>
+       <button onclick=vlag(hongarije)>Hongarije</button><br>
+       <button onclick=vlag(bulgarije)>Bulgarije</button>
+       <button onclick=vlag(nederland)>Nederland</button>
+    
+
+   </body>
+</html>
